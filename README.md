@@ -1,3 +1,5 @@
+[![forthebadge](https://forthebadge.com/images/badges/made-with-rust.svg)](https://forthebadge.com)
+
 # m_o
 My personal cleaner written in rust for cleaning rust binaries
 
@@ -49,6 +51,7 @@ Verbose output:
     m_o /path/to/folder/with/projects --verbose
   
 
-### Examples
-![Test]([https://github.com/Vic0Lan/m_o/master/test.png?raw=true](https://github.com/Vic0Lan/m_o/blob/856e627db1e736e9581aa43e058cf7a9b0aed8dd/test.png))
+### Example
+![Test](https://github.com/Vic0Lan/m_o/blob/856e627db1e736e9581aa43e058cf7a9b0aed8dd/test.png)
 
+ [![forthebadge](https://forthebadge.com/images/featured/featured-built-with-love.svg)](https://forthebadge.com)

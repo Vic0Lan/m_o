@@ -19,13 +19,6 @@ Requirements for m_o:
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development
-environment running
-
-
-
-
-Say what the step will be
 
     # Clone the repo
     $ git clone https://github.com/Vic0Lan/m_o.git

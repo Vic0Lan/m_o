@@ -38,10 +38,6 @@ Requirements for m_o:
 Clean rust projects folder:
 
     m_o /path/to/folder/with/projects
-    
-Verbose output:
-
-    m_o /path/to/folder/with/projects --verbose
   
 
 ### Example

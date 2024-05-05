@@ -4,24 +4,27 @@ use std::fs;
 use std::io::{Error, ErrorKind};
 use std::path::{Path, PathBuf};
 
+//TODO:
 // Crea una funzione per eseguire il clean della directory ✅
 // Crea una funzione per attraversare le directory da pulire ✅
 // Implementa il threading ✅
 // Implementa l'input da cli ✅
 // Implementa output migliorato (usa owo_colors ad esempio) ✅
 // Implementa output verboso ✅
-//
 // Implementa la ricorsione delle cartelle ✅
-// Sistema l'error handling di clean in relazione ai file
+
+//[ Nota: sono costretto ad usare unsafe per accedervi ]
+static mut CLEANED: u8 = 0;
 
 pub fn clean(path: &Path) -> Result<(), Error> {
-    //[ Controllo che la cartella esiste ]
+    //[ Controllo che la cartella esista ]
     let flag = if path.exists() { true } else { false };
 
     if path.is_file() {
         return Ok(());
     }
 
+    //[ prendo il nome della cartella ]
     let path_name = path
         .to_str()
         .expect("failed to scan path".on_bright_red().to_string().as_str())
@@ -59,6 +62,11 @@ pub fn clean(path: &Path) -> Result<(), Error> {
                     .as_str()
             )
         );
+
+        //[ conto il numero di cartelle eliminate ]
+        unsafe {
+            CLEANED += 1;
+        }
     }
 
     Ok(())
@@ -114,11 +122,15 @@ fn main() {
         args.get(1)
             .expect("failed to read argument".on_red().to_string().as_str()),
     ));
-
     match out {
-        Ok(_) => println!("{}", "Your space is now freed, bye bye".green()),
+        Ok(_) => {
+            println!("{}{}", "Number of folder cleaned: ".cyan(), unsafe {
+                CLEANED.green()
+            });
+            println!("{}", "Your space is now freed, bye bye".green());
+        }
         Err(err) => {
-            println!("{}", err.on_red());
+            eprintln!("{}", err.on_red());
         }
     };
 }

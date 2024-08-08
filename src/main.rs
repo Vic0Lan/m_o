@@ -4,14 +4,7 @@ use std::fs;
 use std::io::{Error, ErrorKind};
 use std::path::{Path, PathBuf};
 
-//TODO:
-// Crea una funzione per eseguire il clean della directory ✅
-// Crea una funzione per attraversare le directory da pulire ✅
-// Implementa il threading ✅
-// Implementa l'input da cli ✅
-// Implementa output migliorato (usa owo_colors ad esempio) ✅
-// Implementa output verboso ✅
-// Implementa la ricorsione delle cartelle ✅
+
 
 //[ Nota: sono costretto ad usare unsafe per accedervi ]
 static mut CLEANED: u8 = 0;
